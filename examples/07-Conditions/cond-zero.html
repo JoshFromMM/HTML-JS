@@ -1,0 +1,45 @@
+<!-- 
+Filename: cond-zero.html
+Author: Joshua Males
+Date Created: October 16, 2018
+Last Fix: October 16, 2018
+Description: Check for Zero Value
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Check for Zero Value</title>
+    <meta charset="utf-8"/>
+  </head>
+  
+  <body>
+    <h1>Check for Zero Value</h1>
+    
+    x: <input type="number" id="xinput" value="0">
+    <br><br>
+    <button id="button1" onclick="doThings()">Check</button>
+    
+    <p id="answer"></p>
+    
+    <script>
+        function doThings()
+        {
+            // Get the value from the input box and store in x
+            let x = parseInt(document.getElementById("xinput").value);
+            
+            if (x)    
+                document.getElementById('answer').innerHTML = "Number is Non-Zero" ;
+                
+            if (!x)    
+                document.getElementById('answer').innerHTML = "Number is Zero" ;
+                
+            if (x % 2)    
+                document.getElementById('answer').innerHTML += "<br />Number is Odd" ;
+                
+            if (!(x % 2))    
+                document.getElementById('answer').innerHTML += "<br />Number is Even" ;
+        } // end of doThings()
+    </script>
+    
+  </body>
+</html>

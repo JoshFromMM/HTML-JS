@@ -1,0 +1,43 @@
+<!-- 
+Filename: func-no-return.html
+Date Created: November 3, 2018
+Last Fix: November 3, 2018
+Description: Simple Function without return
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>
+        פונקציה פשוטה ללא return
+    </title>
+    <meta charset="utf-8" />
+</head>
+
+<body dir="rtl">
+    <h1>
+        פונקציה פשוטה ללא return
+    </h1>
+
+    <p>
+        דוגמא זאת מפעילה פונקציה לחשב את המכפלה של שני מספרים.
+        <br />
+        הפונקציה מקבלת שני פרמטרים, ולא מחזירה ערך.
+    </p>
+    <p id="result"></p>
+
+    <script>
+        function myFunction(p1, p2) {
+            document.getElementById("result").innerHTML = (p1 * p2);
+        } // myFunction
+
+        myFunction(5, 6);
+    </script>
+
+<button id="button1" onclick="myFunction(7, 8)">
+    7 כפול 8
+</button>
+
+</body>
+
+</html>

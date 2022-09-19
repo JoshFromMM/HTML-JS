@@ -1,0 +1,65 @@
+<!-- 
+Filename: array-insert.html
+Author: Joshua Males
+Date Created: November 5, 2018
+Last Fix: November 5, 2018
+Description: Insert number into sorted array
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+        Array Insert
+    </title>
+    <meta charset="utf-8"/>
+  </head>
+  
+    <body>
+        <h1>
+            Array Insert
+        </h1>
+
+        <script>
+            let aNumbers = [3,6,22,35,47,56,68,74,87,99];
+            let i;
+
+            document.write("Numbers: ");
+            for (i=0; i < aNumbers.length; i++)
+                document.write(aNumbers[i] + " ");
+            document.write("<br />");
+        </script>
+
+        Enter number to insert: 
+        <input type="number" id="numinput" value="">
+        <br><br>
+        <button id="button1" onclick="doThings()">
+            Insert Number
+        </button>
+        <p id="answer"></p>
+
+        <script>
+            function doThings()
+            {
+                // Get the value from the input box and store in insertMe
+                let insertMe = parseInt(document.getElementById("numinput").value);
+
+                let i = aNumbers.length-1; // Start at the end
+                while ((i >= 0) && (aNumbers[i] > insertMe) ) {
+                    aNumbers[i + 1] = aNumbers[i]; // Move item up
+                    i--;
+                }
+                   // If we left the loop, then i+1 = the place to insert the new number
+                aNumbers[i + 1] = insertMe; // Insert into array
+            
+                // Build output string
+                output = "";
+                for (i=0; i < aNumbers.length; i++)
+                    output += aNumbers[i] + " ";
+                output += "<br />";
+
+                document.getElementById('answer').innerHTML = output;
+        } // doThings
+        </script>
+    
+    </body>
+</html>

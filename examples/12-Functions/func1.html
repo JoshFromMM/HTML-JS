@@ -1,0 +1,37 @@
+<!-- 
+Filename: func1.html
+Date Created: November 3, 2018
+Last Fix: November 3, 2018
+Description: Simple Function
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+    פונקציה פשוטה
+    </title>
+    <meta charset="utf-8"/>
+  </head>
+  
+  <body dir="rtl">
+  <h1>
+    פונקציה פשוטה
+  </h1>
+  
+  <p>
+    דוגמא זאת מפעילה פונקציה לחשב את המכפלה של שני מספרים.
+    <br />
+    הפונקציה מקבלת שני פרמטרים, ומחזירה ערך.
+    </p>
+    <p id="result"></p>
+
+    <script>
+        function myFunction(p1, p2) {
+            return p1 * p2;
+        } // myFunction
+
+        document.getElementById("result").innerHTML = myFunction(4, 3);
+    </script>
+            
+  </body>
+</html>

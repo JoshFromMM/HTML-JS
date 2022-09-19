@@ -1,0 +1,36 @@
+<!-- 
+Filename: array-mothers.html
+Author: Joshua Males
+Date Created: November 24, 2018
+Last Fix: November 24, 2018
+Description: Display Matriarchs
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+        Display Matriarchs
+    </title>
+    <meta charset="utf-8"/>
+  </head>
+  
+    <body>
+        <h1>
+            Display Matriarchs
+        </h1>
+
+        <script>
+            let mothers, text, i;
+            mothers = ["Sarah", "Rivka", 
+                        "Rachel", "Leah"];
+            
+            text = "<ul>";
+            for (i = 0; i < mothers.length; i++) {
+                text += "<li>" + mothers[i] + "</li>";
+            }
+            text += "</ul>";
+            document.write(text);
+        </script>
+    
+    </body>
+</html>

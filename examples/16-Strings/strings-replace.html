@@ -1,0 +1,130 @@
+<!-- 
+Filename: strings-replace.html
+Author: Joshua Males
+Date Created: June 13, 2019
+Last Fix: June 13, 2019
+Description: Replace part of a string
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Replace Part of a String</title>
+    <meta charset="utf-8"/>
+  </head>
+  
+  <body>
+    <h1>Replace Part of a String</h1>
+    
+    String: <input id="input1" size="40" value="Visit Maale Shomron and Ginot Shomron">
+    <br /><br />
+    Case-sensitive Search for: <input id="input2" value="Shomron">
+    <br /><br />
+    Replace with: <input id="input3" value="Binyamin">
+    <br /><br />
+    Case-insensitive Search for: <input id="input4" value="shomroN">
+    <br /><br />
+    Pre-trim String: <input id="input5" value="   Javascript is cool   ">
+    <br /><br />
+    Replace one character: <input id="input6" value="Bank">&nbsp;&nbsp;
+    Index: <input type="number" id="index7" value="2" min="0" max="99">&nbsp;&nbsp;
+    Replace with: <input id="input8" size="3" value="c">
+    <br /><br />
+    
+    <button onclick="replace1()">Replace First Instance of Text (case-sensitive)</button>
+    <br /><br />
+    <button onclick="replace2()">Replace First Instance of Text (case-insensitive)</button>
+    <br /><br />
+    <button onclick="replace3()">Replace All Instances of Text (case-sensitive)</button>
+    <br /><br />
+    <button onclick="replace4()">Replace All Instances of Text (case-insensitive)</button>
+    <br /><br />
+    <button onclick="trimExample()">Trim String</button>
+    <br /><br />
+    <button onclick="replaceCharacter()">Replace One Character at Location</button>
+    <br /><br />
+    
+    <p id="answer"></p>
+    
+    <script>
+        //==============================================================================
+        function replace1()
+        {
+            let str1         = document.getElementById("input1").value;
+            let sSearchFor   = document.getElementById("input2").value;
+            let sReplaceWith = document.getElementById("input3").value;
+            let sResult = "Result #1 is: " + str1.replace(sSearchFor, sReplaceWith);
+            
+            document.getElementById('answer').innerHTML = sResult;
+        } // end of replace1()
+        
+        
+        //==============================================================================
+        function replace2()
+        {
+            let str1         = document.getElementById("input1").value;
+            let sSearchFor   = document.getElementById("input4").value;
+            let sReplaceWith = document.getElementById("input3").value;
+            
+            sSearchFor = RegExp(sSearchFor, "i");
+            let sResult = "Result #2 is: " + str1.replace(sSearchFor, sReplaceWith);
+            
+            document.getElementById('answer').innerHTML = sResult;
+        } // end of replace2()
+        
+        //==============================================================================
+        function replace3()
+        {
+            let str1         = document.getElementById("input1").value;
+            let sSearchFor   = document.getElementById("input2").value;
+            let sReplaceWith = document.getElementById("input3").value;
+            
+            sSearchFor = RegExp(sSearchFor, "g"); // g=global
+            let sResult = "Result #3 is: " + str1.replace(sSearchFor, sReplaceWith);
+            
+            document.getElementById('answer').innerHTML = sResult;
+        } // end of replace3()
+        
+        //==============================================================================
+        function replace4()
+        {
+            let str1         = document.getElementById("input1").value;
+            let sSearchFor   = document.getElementById("input4").value;
+            let sReplaceWith = document.getElementById("input3").value;
+            
+            sSearchFor = RegExp(sSearchFor, "gi"); // i=case-insensitive
+            let sResult = "Result #4 is: " + str1.replace(sSearchFor, sReplaceWith);
+            
+            document.getElementById('answer').innerHTML = sResult;
+        } // end of replace4()
+        
+    
+        //==============================================================================
+        function trimExample()
+        {
+            let str1 = document.getElementById("input5").value;
+            
+            let sResult = "Trim result of \"" + str1 + "\" is: \"" + str1.trim() + "\"";
+            
+            document.getElementById('answer').innerHTML = sResult;
+        } // end of trimExample()
+        
+        //==============================================================================
+        function replaceCharacter()
+        {
+            let str1 = document.getElementById("input6").value;
+            let index = parseInt(document.getElementById("index7").value);
+            let sReplaceWith = document.getElementById("input8").value;
+            let character = sReplaceWith[0]; // make sure only one character
+            
+            let sResult = "Result is: " + 
+                          str1.substr(0, index) + 
+                          character + 
+                          str1.substr(index + 1);            
+            document.getElementById('answer').innerHTML = sResult;
+        } // end of replaceCharacter()
+        
+        //==============================================================================
+    </script>
+    
+  </body>
+</html>

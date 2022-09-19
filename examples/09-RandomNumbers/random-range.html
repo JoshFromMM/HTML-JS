@@ -1,0 +1,38 @@
+<!-- 
+Filename: random-range.html
+Author: Joshua Males
+Date Created: October 18, 2018
+Last Fix: October 25, 2018
+Description: Pick Random Number from Range
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Pick Random Number from Range</title>
+    <meta charset="utf-8"/>
+  </head>
+  
+  <body>
+    <h1>Pick Random Number from Range</h1>
+    
+    Minimum: <input type="number" id="mininput" value="0">
+    <br><br>
+    Maximum: <input type="number" id="maxinput" value="0">
+    <br><br>
+    <button id="button1" onclick="doThings()">Pick Random Number</button>
+    
+    <p id="answer"></p>
+    
+    <script>
+        function doThings()
+        {
+            let min = parseInt(document.getElementById("mininput").value);
+            let max = parseInt(document.getElementById("maxinput").value);
+            let r = Math.floor(Math.random() * (max - min + 1)) + min;
+            
+            document.getElementById('answer').innerHTML = "Random number is " + r;
+        } // end of doThings()
+    </script>
+    
+  </body>
+</html>

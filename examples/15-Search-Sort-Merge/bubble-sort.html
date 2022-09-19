@@ -1,0 +1,75 @@
+<!-- 
+Filename: bubble-sort.html
+Author: Joshua Males
+Date Created: November 29, 2018
+Last Fix: June 26, 2019
+Description: Bubble Sort
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+        Bubble Sort
+    </title>
+    <meta charset="utf-8"/>
+  </head>
+  
+    <body>
+        <h1>
+            Bubble Sort
+        </h1>
+
+        <script>
+            //==========================================================
+            let aNumbers = [];
+            let text, i, compares;
+            
+            for (i=0; i < 10; i++)
+                aNumbers[i] = Math.floor(Math.random() * 100) + 1;
+
+            // Build and display the table as we sort
+            text = '<table border="1" bordercolor="black" cellpadding=5>';
+            document.write(text);
+            document.write(buildTable("Original Order", aNumbers));
+            bubbleSort(aNumbers);
+            text = '</table><br />';
+            document.write(text);
+            
+            //==========================================================
+            function buildTable(title, arr) 
+            {
+                let text;
+                
+                text = '<tr><td width="35%">' + title + '</td>';
+                for (i=0; i<arr.length; i++)
+                    text += '<td>' + arr[i] + '</td>';
+                text += '</tr>';
+                return text;
+            } // buildTable
+            
+            //==========================================================
+            function bubbleSort(arr) 
+            {
+                let i, isSorted, temp, tripCount=0;
+                
+                do {
+                    isSorted = true;
+                    for (i=0; i<arr.length-1; i++)
+                        if (arr[i] > arr[i+1]) {
+                            // Numbers are out of order
+                            isSorted = false;
+                            // Swap the numbers
+                            temp = arr[i];
+                            arr[i] = arr[i+1];
+                            arr[i+1] = temp;
+                        }
+                    // These next three lines are for nice output    
+                    tripCount++;
+                    if (!isSorted)
+                        document.write(buildTable("After Trip " + tripCount, aNumbers));
+                } while (!isSorted);
+            } // bubbleSort
+        </script>
+        
+    </body>
+</html>

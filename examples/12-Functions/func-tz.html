@@ -1,0 +1,80 @@
+<!-- 
+Filename: func-tz.html
+Author: Joshua Males
+Date Created: November 4, 2018
+Last Fix: November 4, 2018
+Description: Calculate Check Digit for Teudat Zehut
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+        ספרת ביקורת לתעודת זהות
+    </title>
+    <meta charset="utf-8"/>
+  </head>
+  
+    <body dir="rtl">
+        <h1>
+            ספרת ביקורת לתעודת זהות
+        </h1>
+
+        מספר תעודת זהות (בלי הספרה האחרונה)
+        <input type="number" id="tzinput" value="">
+        <br><br>
+        <button id="button1" onclick="doThings()">
+            חשב ספרת ביקורת
+        </button>
+        
+        <p id="answer"></p>
+    
+        <script src="digits.js"></script> 
+        <script>
+            //==========================================================
+            // We're going backwards: If position is even (0,2,4,6) return 2; if odd return 1
+            function getWeight(position)
+            {
+                if ((position % 2) == 0) // 0,2,4,6
+                    return 2;
+                else // 1,3,5,7
+                    return 1;
+            } // getOnesDigit
+
+            //==========================================================
+            function calcCheckDigit(tz)
+            {
+                let i, product, sum = 0, weight, digit;
+
+                // We are moving from right to left
+                for (i = 0; i < 8; i++) {
+                    digit = getOnesDigit(tz);
+                    weight = getWeight(i); // 1 or 2
+                    product = digit * weight;
+                    sum += sumOfDigits(product);
+
+                    // Remove the ones digit
+                    tz = Math.floor(tz / 10);
+                } // for i    
+                
+                onesDigit = getOnesDigit(sum);
+                return getOnesDigit(10 - onesDigit);
+            } // calcCheckDigit
+
+            //==========================================================
+            function doThings()
+            {
+                // Get the value from the input box and store in tz
+                let tz = parseInt(document.getElementById("tzinput").value);
+                
+                let checkDigit;
+
+                checkDigit = calcCheckDigit(tz);
+
+                document.getElementById('answer').innerHTML = 
+                    "ספרת ביקורת: " +
+                    checkDigit;
+            } // doThings()
+        </script>
+    
+    </body>
+</html>

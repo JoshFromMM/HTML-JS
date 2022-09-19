@@ -1,0 +1,50 @@
+<!-- 
+Filename: array-big.html
+Author: Joshua Males
+Date Created: November 22, 2018
+Last Fix: November 22, 2018
+Description: Pick 10 random numbers. Find the biggest number.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+        Downwards Array Scan
+    </title>
+    <meta charset="utf-8"/>
+  </head>
+  
+    <body>
+        <h1>
+            Downwards Array Scan
+        </h1>
+
+        <script>
+            function findMax(arr) {
+                let len = arr.length
+                let max = arr[--len];
+                while (len--) {
+                    if (arr[len] > max) {
+                        max = arr[len];
+                    }
+                }
+                return max;
+            } // findMax
+            
+            let aNumbers = [];
+            let biggest, i;
+
+            for (i=0; i < 10; i++)
+                aNumbers[i] = Math.floor(Math.random() * 100) + 1;
+
+            document.write("Numbers: ");
+            for (i=0; i < aNumbers.length; i++)
+                document.write(aNumbers[i] + " ");
+            document.write("<br />");
+
+            biggest = findMax(aNumbers);
+            document.write("Biggest Number: " + biggest + "<br />");
+        </script>
+    
+    </body>
+</html>

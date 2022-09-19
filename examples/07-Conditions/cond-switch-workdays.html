@@ -1,0 +1,52 @@
+<!-- 
+Filename: cond-switch-workdays.html
+Author: Joshua Males
+Date Created: October 17, 2018
+Last Fix: October 22, 2018
+Description: Switch - Combined Cases
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Switch - Case Fall-through</title>
+    <meta charset="utf-8"/>
+  </head>
+  
+  <body>
+    <h1>Switch - Case Fall-through</h1>
+    
+    Day (1-7): <input type="number" id="xinput" value="1">
+    <br><br>
+    <button id="button1" onclick="doThings()">Show Day Type</button>
+    
+    <p id="answer"></p>
+    
+    <script>
+        function doThings()
+        {
+            // Get the value from the input box and store in x
+            let x = parseInt(document.getElementById("xinput").value);
+            let answer = document.getElementById('answer');
+            answer.innerHTML = "" ; // Start with a blank
+            switch (x) {
+                case 3: answer.innerHTML = "Short " ; // Tuesday
+                
+                case 1: 
+                case 2: 
+                case 4: 
+                case 5: 
+                        answer.innerHTML += "Work Day" ;
+                        break;
+                        
+                case 6: 
+                case 7: answer.innerHTML = "No work today" ;
+                        break;
+                default:
+                        answer.innerHTML = "Unknown Day" ;
+                        break;
+            } // end of switch        
+        } // end of doThings()
+    </script>
+    
+  </body>
+</html>

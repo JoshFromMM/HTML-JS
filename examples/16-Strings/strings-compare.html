@@ -1,0 +1,93 @@
+<!-- 
+Filename: strings-compare.html
+Author: Joshua Males
+Date Created: July 1, 2019
+Last Fix: July 1, 2019
+Description: Strings - Compare Functions
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Strings - Compare Functions</title>
+    <meta charset="utf-8"/>
+  </head>
+  
+  <body>
+    <h1>Strings - Compare Functions</h1>
+    
+    String #1: <input id="input1" value="a">
+    <br><br>
+    String #2: <input id="input2" value="B">
+    <br><br>
+    <button onclick="compare()">Compare</button>&nbsp;
+    <button onclick="compareNoCase()">Compare Case-insensitive</button><br /><br />
+    <button onclick="compare()">Compare using localeCompare()</button><br />
+    
+    <p id="answer"></p>
+    
+    <script>
+        function compare()
+        {
+            // Get the values from the input boxes
+            let str1 = document.getElementById("input1").value;
+            let str2 = document.getElementById("input2").value;
+            
+            let sResult; 
+            if (str1 < str2)
+                sResult = "String #1 is less than String #2";
+            else    
+                if (str1 > str2)
+                    sResult = "String #1 is greater than String #2";
+                else    
+                    sResult = "String #1 equals String #2";
+                    
+            document.getElementById('answer').innerHTML = sResult;
+        } // end of compare()
+        
+        //=============================================
+        function compareNoCase()
+        {
+            // Get the values from the input boxes
+            let str1 = document.getElementById("input1").value;
+            let str2 = document.getElementById("input2").value;
+            
+            str1 = str1.toLowerCase();
+            str2 = str2.toLowerCase();
+            let sResult; 
+            if (str1 < str2)
+                sResult = "String #1 is less than String #2";
+            else    
+                if (str1 > str2)
+                    sResult = "String #1 is greater than String #2";
+                else    
+                    sResult = "String #1 equals String #2";
+                    
+            document.getElementById('answer').innerHTML = sResult;
+        } // end of compareNoCase()
+        
+        //=============================================
+        function uselocalCompare()
+        {
+            // Get the values from the input boxes
+            let str1 = document.getElementById("input1").value;
+            let str2 = document.getElementById("input2").value;
+            
+            let sResult; 
+            let compareValue = str1.uselocalCompare(str2);
+            // compareValue was set to -1, 0, or 1
+            if (compareValue < 0)
+                sResult = "String #1 is less than String #2";
+            else    
+                if (compareValue > 0)
+                    sResult = "String #1 is greater than String #2";
+                else // compareValue == 0    
+                    sResult = "String #1 equals String #2";
+                    
+            document.getElementById('answer').innerHTML = sResult;
+        } // end of uselocalCompare()
+        
+    </script>
+    
+  </body>
+</html>
+

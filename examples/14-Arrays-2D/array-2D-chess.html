@@ -1,0 +1,55 @@
+<!-- 
+Filename: array-2D-chess.html
+Author: Joshua Males
+Date Created: November 25, 2018
+Last Fix: November 25, 2018
+Description: Chessboard
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+        Chessboard
+    </title>
+    <meta charset="utf-8"/>
+  </head>
+  
+    <body>
+        <h1>
+            Chessboard
+        </h1>
+
+        <script>
+            let board = [ 
+                ['R','N','B','Q','K','B','N','R'],
+                ['P','P','P','P','P','P','P','P'],
+                [' ',' ',' ',' ',' ',' ',' ',' '],
+                [' ',' ',' ',' ',' ',' ',' ',' '],
+                [' ',' ',' ',' ',' ',' ',' ',' '],
+                [' ',' ',' ',' ',' ',' ',' ',' '],
+                ['p','p','p','p','p','p','p','p'],
+                ['r','n','b','q','k','b','n','r'] ];
+            
+            function print2D(inArray, inRows, inColumns)
+            {
+                let row, column;                
+                let text = '<table border="1" \
+                                   bordercolor="black" \
+                                   cellspacing="0" \
+                                   cellpadding="10">';
+                // Print 2D array
+                for (row=0; row < inRows; row++) {
+                    text += "<tr>";
+                    for (column=0; column < inColumns; column++)
+                        text += "<td>" + inArray[row][column] + "</td>";
+                    text += "</tr>";
+                } // for row
+                text += "</table>";
+                document.write( text );
+            } // print2D
+            
+            print2D(board, 8, 8);
+        </script>
+    
+    </body>
+</html>

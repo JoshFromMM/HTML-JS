@@ -1,0 +1,56 @@
+<!-- 
+Filename: strings-functions1.html
+Author: Joshua Males
+Date Created: June 12, 2019
+Last Fix: June 12, 2019
+Description: Strings - Basic Functions
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Strings - Basic Functions</title>
+    <meta charset="utf-8"/>
+  </head>
+  
+  <body>
+    <h1>Strings - Basic Functions</h1>
+    
+    Our String: <input id="xinput" value="I Like Dogs">
+    <br><br>
+    <button onclick="showSize()">Show String Size</button><br /><br />
+    <button onclick="showLowerCase()">Show Lower Case</button><br /><br />
+    <button onclick="showUpperCase()">Show Upper Case</button><br /><br />
+    
+    <p id="answer"></p>
+    
+    <script>
+        function showSize()
+        {
+            // Get the value from the input box and store in sText
+            let sText = document.getElementById("xinput").value;
+            let sResult = "String size is " + sText.length;
+            document.getElementById('answer').innerHTML = sResult ;
+        } // end of showSize()
+        
+        //=============================================
+        function showLowerCase()
+        {
+            // Get the value from the input box and store in sText
+            let sText = document.getElementById("xinput").value;
+            let sResult = "Lower case string is: " + sText.toLowerCase();
+            document.getElementById('answer').innerHTML = sResult ;
+        } // end of showLowerCase()
+        
+        //=============================================
+        function showUpperCase()
+        {
+            // Get the value from the input box and store in sText
+            let sText = document.getElementById("xinput").value;
+            let sResult = "Upper case string is: " + sText.toUpperCase();
+            document.getElementById('answer').innerHTML = sResult ;
+        } // end of showUpperCase()
+    </script>
+    
+  </body>
+</html>
+

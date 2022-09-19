@@ -1,0 +1,85 @@
+<!-- 
+Filename: strings-hospital.html
+Author: Joshua Males
+Date Created: June 16, 2019
+Last Fix: June 19, 2019
+Description: Rotating Hospital Signs
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+    שלט בית חולים
+    </title>
+    <meta charset="utf-8"/>
+  </head>
+  
+  <body dir="rtl">
+  
+    <table border="1" width=40% bordercolor="black" cellpadding=10>
+    <tr align=center>
+        <td>
+            <h1>
+            בית חולים שערי הישועה
+            </h1>
+        </td>
+    </tr>
+    <tr align=center>
+        <td>
+        <h2 id="sign-text"></h2>
+        </td>
+    </tr>
+    <tr align=center>
+        <td>
+            <button onclick="toggleSign()">
+            שינוי שלט
+            </button>
+        </td>
+    </tr>
+  </table>
+  
+  <script>
+    let sSignText = " רפואה שלמה רפואה שלמה";
+    let bWarnCohanim = false;
+    
+    let cell = document.getElementById('sign-text'); 
+    cell.style.backgroundColor = "black"; // set the reverse color
+    cell.innerHTML = sSignText;
+    cell.style.color = "lime";
+    
+    setInterval(rotateText, 1000); // Perform rotateText every second
+
+    //==========================================
+    function toggleSign() 
+    {
+        bWarnCohanim = !bWarnCohanim;
+        if (bWarnCohanim) {
+            sSignText = " אזהרת כהנים אזהרת כהנים";
+            cell.style.color = "red";
+        } else {
+            sSignText = " רפואה שלמה רפואה שלמה";
+            cell.style.color = "lime";
+        }    
+        cell.innerHTML = sSignText;
+    } // toggleSign()
+    
+    //==========================================
+    function rotateText() 
+    {
+        if (bWarnCohanim) {
+            // Rotate right (Hebrew)
+            firstChar = sSignText[0]; // Take the first character
+            sSignText = sSignText.slice(1) + firstChar; // Add to the end
+        } else {
+            // Rotate left (Hebrew)
+            lastChar = sSignText[sSignText.length-1]; // take the last character
+            // Add the last character toi the beginning.
+            sSignText = lastChar + sSignText.substr(0, sSignText.length-1);
+        }    
+        cell.innerHTML = sSignText;
+    } // rotateText()
+    
+  </script>
+  
+  </body>
+</html>

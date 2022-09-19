@@ -1,0 +1,40 @@
+<!-- 
+Filename: for-continue.html
+Author: Joshua Males
+Date Created: October 23, 2018
+Last Fix: October 23, 2018
+Description: For with continue
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>for loop with continue</title>
+    <meta charset="utf-8"/>
+  </head>
+  
+  <body>
+    <h1>for loop with continue</h1>
+    
+    <script>
+        let i;
+        let idInput, thisHTML;
+
+        // Create 10 input boxes with unique ids and values
+        // Examples: <input id="input1" value="10" type="number">
+        //           <input id="input2" value="9" type="number">
+        //           <input id="input3" value="8" type="number">
+        for (i = 0; i < 10; i++) {
+            // Build an HTML input box
+            if ((i>2) && (i<7))
+                continue;
+            idInput = "input" + (i+1);
+            thisHTML = "Input " + (i+1) + ": " + 
+                       "<input type=\"number\" " +
+                       "id=\"" + idInput + "\" " + 
+                       "value=\"" + (10-i) + "\"><br/>";
+            document.write(thisHTML);
+        }
+    </script>
+    
+  </body>
+</html>

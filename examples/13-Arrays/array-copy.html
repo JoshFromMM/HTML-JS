@@ -1,0 +1,129 @@
+<!-- 
+Filename: array-copy.html
+Author: Joshua Males
+Date Created: December 19, 2018
+Last Fix: December 23, 2018
+Description: Copy Array
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+        Copy Array
+    </title>
+    <meta charset="utf-8"/>
+  </head>
+  
+    <body>
+        <h1>
+            Copy Array
+        </h1>
+
+        <script>
+            //==========================================================
+            // Global variables
+            //==========================================================
+            let aFirst = [], aSecond = [];
+            let text, i;
+            
+            //==========================================================
+            function buildTable(title, arrSource, arrDest)
+            {
+                let text;
+                
+                text = "<h4>" + title + "</h4>";
+                text += '<table border="1" bordercolor="black" cellpadding=5>';
+                
+                text += '<tr align="center"><td>Source</td>';
+                for (i=0; i<arrSource.length; i++)
+                    text += '<td>' + arrSource[i] + '</td>';
+                text += '</tr>';
+                
+                text += '<tr align="center"><td>Destination</td>';
+                for (i=0; i<arrDest.length; i++)
+                    text += '<td>' + arrDest[i] + '</td>';
+                text += '</tr>';
+                
+                text += '</table>';
+                return text;
+            } // buildTable
+            
+        </script>
+
+        <table border="1" bordercolor="black" cellpadding=10>
+        <tr>
+        <td colspan=2>
+            <script>
+            for (i=0; i < 4; i++)
+                aFirst[i] = Math.floor(Math.random() * 100) + 1;
+                
+            // Try to make an a=b copy
+            aSecond = aFirst;
+            aSecond[0] = 0;
+            
+            document.write(buildTable("b = a Copy", aFirst, aSecond));
+            </script>
+        </td>
+        </tr>
+        
+        <tr>
+        <td>
+            <script>
+            for (i=0; i < 4; i++)
+                aFirst[i] = Math.floor(Math.random() * 100) + 1;
+                
+            aSecond = []; // Stop pointing at the first array
+            // Copy with b[i] = a[i]
+            for (i=0; i < 4; i++)
+                aSecond[i] = aFirst[i];
+            aSecond[0] = 0;
+            
+            document.write(buildTable("b[i] = a[i] Copy", aFirst, aSecond));
+            </script>
+        </td>
+        
+        <td>
+            <script>
+            for (i=0; i < 4; i++)
+                aFirst[i] = Math.floor(Math.random() * 100) + 1;
+                
+            // Copy with [...]
+            aSecond = [...aFirst];
+            aSecond[0] = 0;
+            
+            document.write(buildTable("b = [...a] Copy", aFirst, aSecond));
+            </script>
+        </td>
+        </tr>
+        
+        <tr>
+        <td>
+            <script>
+            for (i=0; i < 4; i++)
+                aFirst[i] = Math.floor(Math.random() * 100) + 1;
+                
+            // Copy with concat
+            aSecond = [].concat(aFirst);
+            aSecond[0] = 0;
+            
+            document.write(buildTable("b = [].concat(a) Copy", aFirst, aSecond));
+            
+            </script>
+        </td>
+        <td>
+            <script>
+            for (i=0; i < 4; i++)
+                aFirst[i] = Math.floor(Math.random() * 100) + 1;
+                
+            // Copy with from
+            aSecond = Array.from(aFirst);
+            aSecond[0] = 0;
+            
+            document.write(buildTable("b = Array.from(a) Copy", aFirst, aSecond));
+            </script>
+        </td>
+        </tr>
+        </table>
+        
+    </body>
+</html>

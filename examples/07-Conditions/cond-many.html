@@ -1,0 +1,57 @@
+<!-- 
+Filename: cond-many.html
+Author: Joshua Males
+Date Created: October 16, 2018
+Last Fix: October 16, 2018
+Description: Compare Two Numbers - Many Tests
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Compare Two Numbers - Many Tests</title>
+    <meta charset="utf-8"/>
+  </head>
+  
+  <body>
+    <h1>Compare Two Numbers - Many Tests</h1>
+    
+    x: <input type="number" id="xinput" value="0">
+    <br><br>
+    y: <input type="number" id="yinput" value="0">
+    <br><br>
+    <button id="button1" onclick="doThings()">Compare</button>
+    
+    <p id="answer"></p>
+    
+    <script>
+        function doThings()
+        {
+            // Get the value from the input box and store in x
+            let x = parseInt(document.getElementById("xinput").value);
+            
+            // Get the value from the input box and store in y
+            let y = parseInt(document.getElementById("yinput").value);
+
+            document.getElementById('answer').innerHTML = ""; // start with an empty answer
+            if (x == y)    
+                document.getElementById('answer').innerHTML += x + " is equal (==) to " + y + "<br />" ;
+                
+            if (x != y)    
+                document.getElementById('answer').innerHTML += x + " is not equal (!=) to " + y + "<br />" ;
+                
+            if (x < y)    
+                document.getElementById('answer').innerHTML += x + " is less than (<) " + y + "<br />" ;
+                
+            if (x <= y)    
+                document.getElementById('answer').innerHTML += x + " is less than or equal to (<=) " + y + "<br />" ;
+                
+            if (x > y)    
+                document.getElementById('answer').innerHTML += x + " is greater than (>) " + y + "<br />" ;
+                
+            if (x >= y)    
+                document.getElementById('answer').innerHTML += x + " is greater than or equal to (>=) " + y + "<br />" ;
+        } // end of doThings()
+    </script>
+    
+  </body>
+</html>

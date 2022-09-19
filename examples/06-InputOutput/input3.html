@@ -1,0 +1,42 @@
+<!-- 
+Filename: input3.html
+Author: Joshua Males
+Date Created: October 15, 2018
+Last Fix: October 15, 2018
+Description: Use of input boxes with text plus parseInt
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Input Boxes #3</title>
+    <meta charset="utf-8"/>
+  </head>
+  
+  <body>
+    <h1>Input Boxes #3</h1>
+    
+    x: <input type="number" id="xinput" value="0">
+    <br><br>
+    y: <input type="number" id="yinput" value="0">
+    <br><br>
+    <button id="button1" onclick="doThings()">Add</button>
+    
+    <p id="keta"></p>
+    
+    <script>
+        function doThings()
+        {
+            // Get the value from the input box and store in x
+            let x = document.getElementById("xinput").value;
+            x = parseInt(x);
+
+            // Get the value from the input box and store in y
+            let y = document.getElementById("yinput").value;
+            y = parseInt(y);
+            
+            document.getElementById('keta').innerHTML = "Sum = " + (x + y) ;
+        } // end of doThings()
+    </script>
+    
+  </body>
+</html>

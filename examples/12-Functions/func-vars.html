@@ -1,0 +1,41 @@
+<!-- 
+Filename: func-vars.html
+Author: Joshua Males
+Date Created: November 4, 2018
+Last Fix: November 4, 2018
+Description: Show Use of Local Variables
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Show Use of Local Variables</title>
+    <meta charset="utf-8"/>
+    
+ </head>
+  
+  <body>
+    <h1>Show Use of Local Variables</h1>
+    <script>
+        function toFahrenheit(celsius) {
+            let f;
+            f = celsius * 9/5 + 32;
+            return (f);
+        } // toFahrenheit
+
+        function myFunction() {
+            f = "Some text";
+            return (f);
+        } // myFunction
+    </script>
+
+    38&deg;C = <script>document.write( toFahrenheit(38) );</script>&deg;F<br />
+    <script>
+        document.write("f = " + f + "<br />"); // Look at Console
+        let f = 1; // global
+        document.write("f = " + f + "<br />");
+        document.write( myFunction() + "<br />" );
+        document.write("f = " + f + "<br />");
+    </script>
+
+  </body>
+</html>

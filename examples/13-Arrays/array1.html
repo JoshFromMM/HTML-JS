@@ -1,0 +1,52 @@
+<!-- 
+Filename: array1.html
+Author: Joshua Males
+Date Created: November 5, 2018
+Last Fix: November 5, 2018
+Description: Pick 10 random numbers. Find average, biggest and smallest.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+        Array Scan
+    </title>
+    <meta charset="utf-8"/>
+  </head>
+  
+    <body>
+        <h1>
+            Array Scan
+        </h1>
+
+        <script>
+            let aNumbers = [];
+            let i;
+
+            for (i=0; i < 10; i++)
+                aNumbers[i] = Math.floor(Math.random() * 100) + 1;
+
+            document.write("Numbers: ");
+            for (i=0; i < 10; i++)
+                document.write(aNumbers[i] + " ");
+            document.write("<br />");
+
+            // Find the average, biggest and smallest
+            let total = 0;
+            let biggest = aNumbers[0], smallest = aNumbers[0];
+
+            for (i=1; i<10; i++) {
+                total += aNumbers[i];
+                if (aNumbers[i] > biggest)
+                    biggest = aNumbers[i];
+                if (aNumbers[i] < smallest)
+                    smallest = aNumbers[i];
+            } // for i
+
+            document.write("Average: " + (total / 10).toFixed(2) + "<br />");
+            document.write("Biggest Number: " + biggest + "<br />");
+            document.write("Smallest Number: " + smallest + "<br />");
+        </script>
+    
+    </body>
+</html>

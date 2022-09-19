@@ -1,0 +1,46 @@
+<!-- 
+Filename: do-while-counter.html
+Author: Joshua Males
+Date Created: October 16, 2018
+Last Fix: October 16, 2018
+Description: Do-While Counter
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Do-While Counter</title>
+    <meta charset="utf-8"/>
+  </head>
+  
+  <body>
+    <h1>Do-While Counter</h1>
+    
+    Counter: <input type="number" id="xinput" value="5">
+    <br><br>
+    <button id="button1" onclick="doThings()">Start Counter</button>
+    
+    <p id="answer"></p>
+
+    <script>
+        function doThings()
+        {
+            // Get the value from the input box and store in x
+            let x = parseInt(document.getElementById("xinput").value);
+            let message = "";
+            if (!x) { // if (x == 0)
+                document.getElementById('answer').innerHTML = "ERROR: Zero" ;
+                return; // Exit the function
+            }
+
+            do {
+                message += "Number = " + x + "<br />";
+                x--; // Subtract 1
+                console.log(x); // Write the number to the console
+            } while (x > 0);
+            message += "Time is up";
+            document.getElementById('answer').innerHTML = message ;
+        } // end of doThings()
+    </script>
+    
+  </body>
+</html>

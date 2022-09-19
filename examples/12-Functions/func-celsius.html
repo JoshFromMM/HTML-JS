@@ -1,0 +1,30 @@
+<!-- 
+Filename: func-celsius.html
+Author: Joshua Males
+Date Created: November 3, 2018
+Last Fix: November 3, 2018
+Description: Use function to convert Celsius to Fahrenheit
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Function: Celsius to Fahrenheit</title>
+    <meta charset="utf-8"/>
+    
+ </head>
+  
+  <body>
+    <h1>Convert Celsius to Fahrenheit</h1>
+    <script>
+        // This must be defined before we call the function below.
+        function toFahrenheit(celsius) {
+            return (celsius * 9/5 + 32);
+        } // toFahrenheit
+    </script>
+
+    38&deg;C = <script>document.write( toFahrenheit(38) );</script>&deg;F<br />
+    100&deg;C = <script>document.write( toFahrenheit(100) );</script>&deg;F<br />
+    0&deg;C = <script>document.write( toFahrenheit(0) );</script>&deg;F<br />
+
+  </body>
+</html>

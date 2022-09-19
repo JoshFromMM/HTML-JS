@@ -1,0 +1,44 @@
+<!-- 
+Filename: cond1.html
+Author: Joshua Males
+Date Created: October 16, 2018
+Last Fix: October 16, 2018
+Description: Compare Two Numbers
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Compare Two Numbers</title>
+    <meta charset="utf-8"/>
+  </head>
+  
+  <body>
+    <h1>Compare Two Numbers</h1>
+    
+    x: <input type="number" id="xinput" value="0">
+    <br><br>
+    y: <input type="number" id="yinput" value="0">
+    <br><br>
+    <button id="button1" onclick="doThings()">Compare</button>
+    
+    <p id="answer"></p>
+    
+    <script>
+        function doThings()
+        {
+            // Get the value from the input box and store in x
+            let x = parseInt(document.getElementById("xinput").value);
+            
+            // Get the value from the input box and store in y
+            let y = parseInt(document.getElementById("yinput").value);
+
+            if (x == y)    
+                // One command. No brackets needed.
+                document.getElementById('answer').innerHTML = "Numbers are equal" ;
+            if (x != y)    
+                document.getElementById('answer').innerHTML = "Numbers are not equal" ;
+        } // end of doThings()
+    </script>
+    
+  </body>
+</html>

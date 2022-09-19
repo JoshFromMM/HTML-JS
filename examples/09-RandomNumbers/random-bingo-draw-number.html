@@ -1,0 +1,53 @@
+<!-- 
+Filename: random-bingo-draw-number.html
+Author: Joshua Males
+Date Created: October 23, 2018
+Last Fix: October 25, 2018
+Description: Bingo Draw Number
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bingo Draw Number</title>
+    <meta charset="utf-8"/>
+  </head>
+  
+  <body>
+    <h1>Bingo Draw Number</h1>
+    
+    <button id="button1" onclick="doThings()">Draw a Number</button>
+    
+    <p id="answer"></p>
+    
+    <script>
+        function doThings()
+        {
+            // Letters: 0=B, 1=I, 2=N, 3=G, 4=O
+            // Pick a number from 1-75
+            let myNumber = Math.floor(Math.random() * 75) + 1;
+            // Get the letter (column from 0-4)
+            let myLetter = Math.floor((myNumber - 1) / 15) ;
+            
+            let ball;
+            
+            // Numbers:
+            // B: 1-15
+            // I: 16-30
+            // N: 31-45
+            // G: 46-60
+            // O: 61-75
+            switch (myLetter) {
+                case 0: ball = "B"; break;
+                case 1: ball = "I"; break;
+                case 2: ball = "N"; break;
+                case 3: ball = "G"; break;
+                case 4: ball = "O"; break;
+            } // switch
+            ball += " " + myNumber;
+            document.getElementById('answer').innerHTML = 
+                "Bingo ball is <b>" + ball + "</b>";
+        } // end of doThings()
+    </script>
+    
+  </body>
+</html>

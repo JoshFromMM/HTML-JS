@@ -1,0 +1,49 @@
+<!-- 
+Filename: do-while-break.html
+Author: Joshua Males
+Date Created: October 23, 2018
+Last Fix: October 23, 2018
+Description: Break out of loop
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Break out of loop</title>
+        <meta charset="utf-8"/>
+    </head>
+  
+    <body>
+        <h1>Break out of loop</h1>
+    
+        Counter: <input type="number" id="xinput" value="5">
+        <br><br>
+        <button id="button1" onclick="doThings()">Start Counter</button>
+    
+        <p id="answer"></p>
+
+        <script>
+        function doThings()
+        {
+            // Get the value from the input box and store in x
+            let x = parseInt(document.getElementById("xinput").value);
+            let firstX = x;
+            let message = "";
+            if (!x) { // if (x == 0)
+                document.getElementById('answer').innerHTML = "ERROR: Zero" ;
+                return;
+            }
+
+            do {
+                message += "Number = " + x + "<br />";
+                // If x == 3 and the original number was 5, then break out of loop
+                if ((x == 3) && (firstX==5))
+                    break;
+                x--; // Subtract 1
+            } while (x > 0);
+            message += "Time is up";
+            document.getElementById('answer').innerHTML = message ;
+        } // end of doThings()
+        </script>
+    
+    </body>
+</html>

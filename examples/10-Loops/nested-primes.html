@@ -1,0 +1,36 @@
+<!-- 
+Filename: nested-primes.html
+Author: Joshua Males
+Date Created: October 25, 2018
+Last Fix: October 25, 2018
+Description: Prime Numbers < 50
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Prime Numbers < 50</title>
+    <meta charset="utf-8"/>
+  </head>
+  
+    <body>
+        <h1>Prime Numbers < 50</h1>
+    
+        <script>
+            let testMe, j, isPrime;
+
+            for (testMe = 2; testMe < 50; testMe++) { // outer loop
+                // See if "testMe" is prime
+                isPrime = 1; // Assume it is prime
+                for (j = 2; j < testMe; j++) { // inner loop
+                    if ((testMe % j) == 0) {
+                        isPrime = 0;  // if factor found, testMe is not prime
+                        break; // No need to check more numbers
+                    }
+                } // end of inner loop (j)
+
+                if (isPrime)
+                    document.write(testMe + " is prime" + "<br />");
+            } // end of outer loop
+        </script>
+  </body>
+</html>

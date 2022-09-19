@@ -1,0 +1,38 @@
+<!-- 
+Filename: button2.html
+Author: Joshua Males
+Date Created: October 14, 2018
+Last Fix: October 15, 2018
+Description: Button changes itself
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Button #2</title>
+    <meta charset="utf-8"/>
+  </head>
+  
+  <body>
+    <h1>Button #2</h1>
+    
+    <script>
+        let x = 0;
+        let y = 0;
+    </script>
+    
+    <!-- Every click increments the number in the button -->
+    <button id="button1" 
+            onclick="document.getElementById('button1').innerHTML = ++x">
+        0
+    </button>
+    
+    <!-- Every click increments the number in the paragraph below -->
+    <button id="button2" 
+            onclick="document.getElementById('keta').innerHTML += ++y + '<br />'">
+        Add to Paragraph
+    </button>
+    
+    <p id="keta"></p>
+    
+  </body>
+</html>

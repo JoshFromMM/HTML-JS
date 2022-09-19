@@ -1,0 +1,76 @@
+<!-- 
+Filename: gauss-pesach.html
+Author: Joshua Males
+Date Created: June 06, 2019
+Last Fix: June 18, 2019
+Description: Pesach Calculation
+Taken from: https://en.wikibooks.org/wiki/Mathematics_of_the_Jewish_Calendar/Gauss%27_Formula_for_the_Date_of_Pesach
+Test with: https://www.hebcal.com/converter
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Pesach Calculation</title>
+    <meta charset="utf-8"/>
+  </head>
+  
+  <body>
+    <h1>Pesach Calculation</h1>
+    
+    Hebrew Year: <input type="number" id="hebrewYear" value="5779">
+    <br><br>
+    <button id="button1" onclick="doThings()">Show Gregorian Date</button>
+    
+    <p id="answer"></p>
+    
+    <script>
+        function doThings()
+        {
+            document.getElementById('answer').innerHTML = "" ; // Start with a blank
+            // Get the value from the input box and store in x
+            let hebrewYear = parseInt(document.getElementById("hebrewYear").value);
+            
+            let a = (12 * hebrewYear + 17) % 19;
+            let b = hebrewYear % 4;
+            let dayInMarch = 32 + (4343 / 98496) + (1 + 272953/492480)*a + (b/4) - (313/98496)*hebrewYear;
+            console.log("dayInMarch = " + dayInMarch);
+            let m = dayInMarch - Math.floor(dayInMarch);
+            
+            dayInMarch = Math.floor(dayInMarch);
+            
+            // Adjust for postponement.
+            let c = (3*hebrewYear + 5*b + dayInMarch + 5) % 7;
+            switch (c) {
+                case 0: if ((a > 11) && (m >= (1367/2160)))
+                            dayInMarch += 2;
+                        break;
+                        
+                case 1: if ((a > 6) && (m >= (23269/25920)))
+                            dayInMarch += 1;
+                        break;
+                        
+                case 2:
+                case 4:                        
+                case 6: dayInMarch += 1;
+                        break;
+            } // switch
+            console.log("After postponement: dayInMarch = " + dayInMarch);
+            
+            // Adjust for Gregorian calendar.
+            let month = "March";
+            gregorianYear = hebrewYear - 3760;
+            let C = Math.floor(gregorianYear / 100);
+            let adjust = C - 2 - Math.floor(C / 4);
+            
+            let day = dayInMarch + adjust;
+            if (day > 31) {
+                day -= 31;
+                month = "April";
+            }
+            
+            document.getElementById('answer').innerHTML = month + " " + day + ", " + gregorianYear;
+        } // end of doThings()
+    </script>
+    
+  </body>
+</html>

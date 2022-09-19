@@ -1,0 +1,38 @@
+<!-- 
+Filename: func-digits.html
+Author: Joshua Males
+Date Created: November 4, 2018
+Last Fix: November 4, 2018
+Description: Use of Digit Functions
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Use of Digit Functions</title>
+    <meta charset="utf-8"/>
+  </head>
+  
+    <body>
+        <h1>Use of Digit Functions</h1>
+
+        Number: <input type="number" id="xinput" value="123">
+        <br><br>
+        <button id="button1" onclick="doThings()">Get Sum and Count</button>
+        
+        <p id="answer"></p>
+    
+        <script src="digits.js"></script> 
+        <script>
+            function doThings()
+            {
+                // Get the value from the input box and store in x
+                let x = parseInt(document.getElementById("xinput").value);
+
+                document.getElementById('answer').innerHTML = 
+                    "Sum: " + sumOfDigits(x) +   "<br />" +
+                    "Number of Digits: " + numberOfDigits(x);
+            } // doThings()
+        </script>
+    
+    </body>
+</html>

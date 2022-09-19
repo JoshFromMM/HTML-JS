@@ -1,0 +1,67 @@
+<!-- 
+Filename: array-methods.html
+Author: Joshua Males
+Date Created: November 22, 2018
+Last Fix: June 18, 2019
+Description: Array Methods
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+        Array Methods
+    </title>
+    <meta charset="utf-8"/>
+  </head>
+  
+    <body>
+        <h1>
+            Array Methods
+        </h1>
+
+        <script>
+            let aNumbers = [];
+            let biggest, i;
+
+            // Create array with random numbers (1-100)
+            for (i=0; i < 10; i++)
+                aNumbers[i] = Math.floor(Math.random() * 100) + 1;
+
+            document.write("Numbers: " + aNumbers.toString() + "<br />");
+            document.write("join: " + aNumbers.join(" and ") + "<br />");
+            
+            aNumbers.reverse();
+            document.write("reverse: Reversed Numbers: " + aNumbers.toString() + "<br />");
+            
+            let x = aNumbers.pop();    
+            document.write("pop: Removed " + x + ", Numbers: " + aNumbers.toString() + "<br />");
+            
+            x = aNumbers.push(222);    
+            document.write("push: " + x + " Numbers: " + aNumbers.toString() + "<br />");
+            
+            x = aNumbers.shift();    
+            document.write("shift: Removed " + x + ", Numbers: " + aNumbers.toString() + "<br />");
+            
+            x = aNumbers.unshift(333);    
+            document.write("unshift: " + x + " Numbers: " + aNumbers.toString() + "<br />");
+            
+            let y = aNumbers.indexOf(222);
+            document.write("indexOf: 222 found at index: " + y + "<br />");
+            
+            x = aNumbers.push(333);    
+            document.write("push: " + x + " Numbers: " + aNumbers.toString() + "<br />");
+            
+            y = aNumbers.lastIndexOf(333);
+            document.write("lastIndexOf: 333 last found at index: " + y + "<br />");
+            
+            aNumbers = [];
+            document.write("Cleared Numbers: " + aNumbers.toString() + "<br />");
+            
+            let names = "Reuven + Shimon + Levi";
+            let aNames = names.split(" + ");
+            document.write("Names after split: " + aNames.toString() + "<br />");
+
+        </script>
+    
+    </body>
+</html>

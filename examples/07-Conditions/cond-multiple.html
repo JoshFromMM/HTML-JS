@@ -1,0 +1,65 @@
+<!-- 
+Filename: cond-multiple.html
+Author: Joshua Males
+Date Created: October 17, 2018
+Last Fix: November 6, 2018
+Description: Multiple Comparisons
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Multiple Comparisons</title>
+    <meta charset="utf-8"/>
+  </head>
+  
+  <body>
+    <h1>Multiple Comparisons</h1>
+    
+    x: <input type="number" id="xinput" value="0">
+    <br><br>
+    y: <input type="number" id="yinput" value="0">
+    <br><br>
+    <button id="button1" onclick="doThings()">Compare</button>
+    
+    <p id="answer"></p>
+    
+    <script>
+        function doThings()
+        {
+            // Get the value from the input box and store in x
+            let x = parseInt(document.getElementById("xinput").value);
+            
+            // Get the value from the input box and store in y
+            let y = parseInt(document.getElementById("yinput").value);
+
+            document.getElementById('answer').innerHTML = "" ; // Clear the answer
+            if (x && y) {
+                document.getElementById('answer').innerHTML += "<br />Both numbers are non-zero" ;
+            }    
+            if (!x || !y) {
+                document.getElementById('answer').innerHTML += "<br />At least one number is zero" ;
+            }    
+            if ((x % 2) && (y % 2)) {
+                document.getElementById('answer').innerHTML += "<br />Both numbers are odd" ;
+            }    
+            if (!(x % 2) || !(y % 2)) {
+                document.getElementById('answer').innerHTML += "<br />At least one number is even" ;
+            }    
+            if ((x >= 100) && (x < 10000)) {
+                document.getElementById('answer').innerHTML += "<br />x has 3 or 4 digits" ;
+            }    
+            if (((x >= 100) && (x < 10000)) && (x % 2)) {
+                document.getElementById('answer').innerHTML += "<br />x has 3 or 4 digits and is odd" ;
+            }    
+            if ((1) || (++x < 10000)) {
+                document.getElementById('answer').innerHTML += "<br />OR Test: x = " + x;
+            }    
+            if ((0) && (++x < 10000)) {
+                document.getElementById('answer').innerHTML += "<br />AND Test (true): x = " + x;
+            } else    
+                document.getElementById('answer').innerHTML += "<br />AND Test (false): x = " + x;
+        } // end of doThings()
+    </script>
+    
+  </body>
+</html>

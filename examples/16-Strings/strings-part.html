@@ -1,0 +1,147 @@
+<!-- 
+Filename: strings-part.html
+Author: Joshua Males
+Date Created: June 13, 2019
+Last Fix: July 2, 2019
+Description: Extract part of a string
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Extract Part of a String</title>
+    <meta charset="utf-8"/>
+  </head>
+  
+  <body>
+    <h1>Extract Part of a String</h1>
+    
+    String: <input id="input1" value="Good Morning!">&nbsp;&nbsp;
+    Index: <input type="number" id="index1" value="0">&nbsp;&nbsp;
+    <button onclick="index1()">Get Character</button>&nbsp;&nbsp;
+    <button onclick="getCharCode()">Get CharacterCode</button>
+    <br /><br />
+    
+    String: <input id="input2" value="I have a cold">&nbsp;&nbsp;
+    <button onclick="getLast()">Get Last Character</button>
+    <br /><br />
+    
+    String: <input id="input3" value="Felafel in a Pita">&nbsp;&nbsp;
+    Index: <input type="number" id="index2" value="11">&nbsp;&nbsp;
+    Length: <input type="number" id="length2" value="6">&nbsp;&nbsp;
+    <button onclick="getSubStr1()">Get Substring using substr(index, length)</button>
+    <br /><br />
+    
+    String: <input id="input4" value="Summer Camp">&nbsp;&nbsp;
+    Start Index: <input type="number" id="index3" value="0">&nbsp;&nbsp;
+    End Index:   <input type="number" id="index4" value="5">&nbsp;&nbsp;
+    <button onclick="getSubStr2()">Get Substring using substring(start, end)</button>
+    <br /><br />
+    
+    String: <input id="input5" value="Mobile Phone">&nbsp;&nbsp;
+    Start Index: <input type="number" id="index5" value="4">&nbsp;&nbsp;
+    End Index:   <input type="number" id="index6" value="8">&nbsp;&nbsp;
+    <button onclick="getSubStr3()">Get Substring using slice(start, end)</button>
+    <br /><br />
+    
+    String: <input id="input6" value="I like the Cleveland Browns">&nbsp;&nbsp;
+    Index: <input type="number" id="index7" value="11">&nbsp;&nbsp;
+    <button onclick="getSubStr4()">Get Substring using substr(index)</button>
+    <br /><br />
+    
+    <p id="answer"></p>
+    
+    <script>
+        function index1()
+        {
+            let str1 = document.getElementById("input1").value;
+            let index = parseInt(document.getElementById("index1").value);
+            let character = str1[index];
+            let sResult = "Character at index " + index + " (using str1[index]) = " + character;
+            
+            document.getElementById('answer').innerHTML = sResult;
+            
+            character = str1.charAt(index);
+            sResult = "Character at index " + index + " (using str1.CharAt(index)) = " + character;
+            document.getElementById('answer').innerHTML += "<br />" + sResult;
+        } // end of index1()
+        
+        //=====================================
+        function getCharCode()
+        {
+            let str1 = document.getElementById("input1").value;
+            let index = parseInt(document.getElementById("index1").value);
+            let characterCode = str1.charCodeAt(index);
+            let sResult = "Character Code at index " + index + 
+                          " (using str1.charCodeAt(index)) = " +
+                          characterCode;
+            
+            document.getElementById('answer').innerHTML = sResult;
+        } // end of getCharCode()
+        
+        //=====================================
+        function getLast()
+        {
+            let str1 = document.getElementById("input2").value;
+            let character = str1[str1.length-1];
+            let sResult = "Last Character (using str1[str1.length-1]) = " + character;
+            
+            document.getElementById('answer').innerHTML = sResult;
+            
+            character = str1.charAt(str1.length-1);
+            sResult = "Last Character (using str1.CharAt(str1.length-1) = " + character;
+            document.getElementById('answer').innerHTML += "<br />" + sResult;
+        } // end of getLast()
+        
+        //=====================================
+        // The second parameter specifies the length of the extracted part.
+        function getSubStr1()
+        {
+            let str1    = document.getElementById("input3").value;
+            let index   = parseInt(document.getElementById("index2").value);
+            let length  = parseInt(document.getElementById("length2").value);
+            let sSub    = str1.substr(index, length);
+            let sResult = "Substring (using str1.substr(index, length)) = " + sSub;
+            document.getElementById('answer').innerHTML = sResult;
+        } // end of getSubStr1()
+        
+        //=====================================
+        // The substring() function cannot accept negative indexes.
+        // The method takes 2 parameters: the start position, and the end position (end not included).
+        function getSubStr2()
+        {
+            let str1       = document.getElementById("input4").value;
+            let indexStart = parseInt(document.getElementById("index3").value);
+            let indexEnd   = parseInt(document.getElementById("index4").value);
+            let sSub       = str1.substring(indexStart, indexEnd);
+            let sResult    = "Substring (using str1.substring(start, end)) = " + sSub;
+            document.getElementById('answer').innerHTML = sResult;
+        } // end of getSubStr2()
+        
+        //=====================================
+        // slice - If a parameter is negative, the position is counted from the end of the string.
+        // The method takes 2 parameters: the start position, and the end position (end not included).
+        function getSubStr3()
+        {
+            let str1       = document.getElementById("input5").value;
+            let indexStart = parseInt(document.getElementById("index5").value);
+            let indexEnd   = parseInt(document.getElementById("index6").value);
+            let sSub       = str1.slice(indexStart, indexEnd);
+            let sResult    = "Substring (using str1.slice(start, end)) = " + sSub;
+            document.getElementById('answer').innerHTML = sResult;
+        } // end of getSubStr3()
+        
+        //==============================================================================
+        // If you omit the second parameter, the method will take the rest of the string
+        function getSubStr4()
+        {
+            let str1       = document.getElementById("input6").value;
+            let indexStart = parseInt(document.getElementById("index7").value);
+            let sSub       = str1.substr(indexStart);
+            let sResult    = "Substring (using str1.substr(start)) = " + sSub;
+            document.getElementById('answer').innerHTML = sResult;
+        } // end of getSubStr4()
+        
+    </script>
+    
+  </body>
+</html>

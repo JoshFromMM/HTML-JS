@@ -1,0 +1,104 @@
+<!-- 
+Filename: strings-search.html
+Author: Joshua Males
+Date Created: June 16, 2019
+Last Fix: July 2, 2019
+Description: Strings - Search Functions: indexOf, lastIndexOf
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Strings - Search Functions</title>
+    <meta charset="utf-8"/>
+  </head>
+  
+  <body>
+    <h1>Strings - Search Functions</h1>
+    
+    Haystack: <input id="input1" size=30 value="My older brother is 18 years old.">
+    <br><br>
+    Needle: <input id="input2" value="old">
+    <br><br>
+    Start Index: <input type="number" id="index" value="0">&nbsp;&nbsp;
+
+    <button onclick="test_indexOf()">indexOf</button>&nbsp;
+    <button onclick="test_lastIndexOf()">lastIndexOf</button>
+    <br /><br />
+    <button onclick="test_search()">Search Case-Sensitive</button>&nbsp;
+    <button onclick="test_searchNoCase()">Search Case-Insensitive</button>
+    <br />
+    
+    <p id="answer"></p>
+    
+    <script>
+        function test_search()
+        {
+            let sHaystack = document.getElementById("input1").value;
+            let sNeedle   = document.getElementById("input2").value;
+            
+            let location = sHaystack.search(sNeedle);
+            
+            if (location == -1)
+                sResult = "\"" + sNeedle + "\" not found." ;
+            else    
+                sResult = "\"" + sNeedle + "\" found at index " + location;
+            
+            document.getElementById('answer').innerHTML = sResult;
+        } // end of test_search()
+        
+        //================================================
+        function test_searchNoCase()
+        {
+            let sHaystack = document.getElementById("input1").value;
+            let sNeedle   = document.getElementById("input2").value;
+            let sFindMe = RegExp(sNeedle, "i"); // i=case-insensitive
+            
+            let location = sHaystack.search(sFindMe);
+            
+            if (location == -1)
+                sResult = "\"" + sNeedle + "\" not found." ;
+            else    
+                sResult = "\"" + sNeedle + "\" found at index " + location;
+            
+            document.getElementById('answer').innerHTML = sResult;
+        } // end of test_searchNoCase()
+        
+        //================================================
+        function test_indexOf()
+        {
+            let sHaystack = document.getElementById("input1").value;
+            let sNeedle   = document.getElementById("input2").value;
+            let index     = parseInt(document.getElementById("index").value);
+            
+            let location = sHaystack.indexOf(sNeedle, index);
+            
+            if (location == -1)
+                sResult = "\"" + sNeedle + "\" not found." ;
+            else    
+                sResult = "\"" + sNeedle + "\" found at index " + location;
+            
+            document.getElementById('answer').innerHTML = sResult;
+        } // end of test_indexOf()
+        
+        //================================================
+        function test_lastIndexOf()
+        {
+            let sHaystack = document.getElementById("input1").value;
+            let sNeedle   = document.getElementById("input2").value;
+            let index     = parseInt(document.getElementById("index").value);
+            
+            let location = sHaystack.lastIndexOf(sNeedle, index);
+            
+            if (location == -1)
+                sResult = "\"" + sNeedle + "\" not found." ;
+            else    
+                sResult = "Last instance of \"" + sNeedle + "\" found at index " + location;
+            
+            document.getElementById('answer').innerHTML = sResult;
+        } // end of test_lastIndexOf()
+        
+    </script>
+    
+  </body>
+</html>
+

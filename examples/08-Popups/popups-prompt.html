@@ -1,0 +1,27 @@
+<!-- 
+Filename: popups-prompt.html
+Author: Joshua Males
+Date Created: October 18, 2018
+Last Fix: October 18, 2018
+Description: Use of Prompt Popup
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Use of Prompt Popup</title>
+    <meta charset="utf-8"/>
+  </head>
+  
+  <body>
+    <h1>Use of Prompt Popup</h1>
+    
+    <script>
+        name = window.prompt ("What is your name?", "Superman");
+        if ((name == null) || (name == "null") || (name == ""))
+            document.write("User Cancelled");
+        else    
+            document.write("Hello " + name);
+    </script>
+    
+  </body>
+</html>

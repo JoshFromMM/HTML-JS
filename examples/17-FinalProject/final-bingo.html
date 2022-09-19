@@ -1,0 +1,31 @@
+<!-- 
+Filename: final-bingo.html
+Author: Joshua Males
+Date Created: December 23, 2018
+Last Fix: July 8, 2019
+Description: Final Bingo Game
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Final Bingo Game</title>
+    <meta charset="utf-8"/>
+  </head>
+  
+  <body>
+    <h1>Final Bingo Game</h1>
+
+    <script src="bingo.js"></script> 
+    <script>
+        drawFirstBoard();
+    </script>
+    
+    <h2 id="lastNumber">Last Number: </h2>
+    
+    <button id="btnPick" onclick="pickNumber()">Pick Number</button>&nbsp;
+    <button id="btnRestart" onclick="restartGame()">Restart</button>&nbsp;
+    <button id="btnCard" onclick="createCard()">Create Card</button>
+
+    
+  </body>
+</html>

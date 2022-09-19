@@ -1,0 +1,45 @@
+<!-- 
+Filename: array-2D-2.html
+Author: Joshua Males
+Date Created: November 25, 2018
+Last Fix: November 25, 2018
+Description: 2D Array - Define #2
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+        2D Array - Define #2
+    </title>
+    <meta charset="utf-8"/>
+  </head>
+  
+    <body>
+        <h1>
+            2D Array - Define #2
+        </h1>
+
+        <script>
+            let aNumbers = [];
+            let row, column;                
+                            
+            // Define 2D array - an array of arrays
+            for (row=0; row < 10; row++)
+                aNumbers[row] = new Array(10);
+            
+            // Fill 2D array with values
+            for (row=0; row < 10; row++)
+                for (column=0; column < 10; column++)
+                    aNumbers[row][column] = (row + column) % 10;
+            
+            // Print 2D array
+            for (row=0; row < aNumbers.length; row++) {
+                for (column=0; column < aNumbers[0].length; column++)
+                    document.write(aNumbers[row][column] + " ");
+                // Jump to new line    
+                document.write("<br />");
+            } // for row
+        </script>
+    
+    </body>
+</html>

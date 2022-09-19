@@ -1,0 +1,58 @@
+<!-- 
+Filename: cond-check-input.html
+Author: Joshua Males
+Date Created: October 17, 2018
+Last Fix: October 22, 2018
+Description: Short Compare
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Check Input</title>
+    <meta charset="utf-8"/>
+  </head>
+  
+  <body>
+    <h1>Check Input</h1>
+    
+    x: <input type="number" id="xinput" value="0">
+    <br><br>
+    y: <input type="number" id="yinput" value="0">
+    <br><br>
+    <button id="button1" onclick="doDivisionWithCheck()">Get x / y with Check</button><br />
+    <button id="button2" onclick="doDivisionWithoutCheck()">Get x / y without Check</button>
+    
+    <p id="answer"></p>
+    
+    <script>
+        function doDivisionWithCheck()
+        {
+            // Get the value from the input box and store in x
+            let x = parseInt(document.getElementById("xinput").value);
+            
+            // Get the value from the input box and store in y
+            let y = parseInt(document.getElementById("yinput").value);
+
+            if (y == 0) {
+                document.getElementById('answer').innerHTML = ""; 
+                window.alert("ERROR: Division by Zero!");
+            }
+            else
+                document.getElementById('answer').innerHTML = x / y ;
+        } // end of doDivisionWithCheck()
+        
+        //==============================================================
+        function doDivisionWithoutCheck()
+        {
+            // Get the value from the input box and store in x
+            let x = parseInt(document.getElementById("xinput").value);
+            
+            // Get the value from the input box and store in y
+            let y = parseInt(document.getElementById("yinput").value);
+
+            document.getElementById('answer').innerHTML = x / y ;
+        } // end of doDivisionWithoutCheck()
+    </script>
+    
+  </body>
+</html>

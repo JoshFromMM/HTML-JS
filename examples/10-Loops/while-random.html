@@ -1,0 +1,40 @@
+<!-- 
+Filename: while-random.html
+Author: Joshua Males
+Date Created: October 23, 2018
+Last Fix: October 23, 2018
+Description: Guess Random 1-100
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Guess Random 1-100</title>
+    <meta charset="utf-8"/>
+  </head>
+  
+  <body>
+    <h1>Guess Random 1-100</h1>
+
+    <script>
+        let randomNumber = Math.floor(Math.random() * 100) + 1;
+        console.log("Random number is " + randomNumber);
+        let numTries = 1;
+        let promptMessage = "Guess a number between 1-100:";
+
+        myNumber = window.prompt (promptMessage, "");
+        while (myNumber != randomNumber) {
+            console.log("Guess #" + numTries + " is " + myNumber);
+            promptMessage = "After " + numTries + ". Your guess of " + myNumber;
+            if (myNumber < randomNumber)
+                promptMessage += " is too low. Try again: " ;
+            else    
+                promptMessage += " is too high. Try again: " ;
+            myNumber = window.prompt (promptMessage, "");
+            numTries++;
+        } // while
+
+        document.write("After " + numTries + " tries. Your guess of " + 
+                       myNumber + " is correct.");
+    </script>
+  </body>
+</html>

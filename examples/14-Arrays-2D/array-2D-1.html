@@ -1,0 +1,47 @@
+<!-- 
+Filename: array-2D-1.html
+Author: Joshua Males
+Date Created: November 25, 2018
+Last Fix: November 25, 2018
+Description: 2D Array - Simple Define
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+        2D Array - Simple Define
+    </title>
+    <meta charset="utf-8"/>
+  </head>
+  
+    <body>
+        <h1>
+            2D Array - Simple Define
+        </h1>
+
+        <script>
+            let aNumbers = [
+                            [0,1,2,3,4,5,6,7,8,9],
+                            [0,1,2,3,4,5,6,7,8,9],
+                            [0,1,2,3,4,5,6,7,8,9],
+                            [0,1,2,3,4,5,6,7,8,9],
+                            [0,1,2,3,4,5,6,7,8,9],
+                            
+                            [0,1,2,3,4,5,6,7,8,9],
+                            [0,1,2,3,4,5,6,7,8,9],
+                            [0,1,2,3,4,5,6,7,8,9],
+                            [0,1,2,3,4,5,6,7,8,9],
+                            [0,1,2,3,4,5,6,7,8,9],
+                            ];
+            let row, column;                
+                            
+            for (row=0; row < aNumbers.length; row++) {
+                for (column=0; column < aNumbers[0].length; column++)
+                    document.write(aNumbers[row][column] + " ");
+                // Jump to new line    
+                document.write("<br />");
+            }
+        </script>
+    
+    </body>
+</html>

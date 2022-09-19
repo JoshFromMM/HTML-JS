@@ -1,0 +1,50 @@
+<!-- 
+Filename: func-default-old.html
+Author: Joshua Males
+Date Created: November 3, 2018
+Last Fix: November 3, 2018
+Description: Function with Old Default Parameters
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Sum with Old Default Parameters</title>
+    <meta charset="utf-8"/>
+  </head>
+  
+  <body>
+    <h1>Sum with Old Default Parameters</h1>
+    x: <input type="number" id="xinput" value="0">
+    <br><br>
+    y: <input type="number" id="yinput" value="0">
+    <br><br>
+    <button id="button1" onclick="doBoth();">Sum with Both</button>
+    <button id="button1" onclick="doDefault();">Sum with Default y (11)</button>
+        
+    <p id="answer"></p>
+    
+    <script>
+        function sumFunction(x, y)
+        {
+            if (typeof y === 'undefined')
+                y = 11;
+            return x + y;
+        } // sumFunction    
+
+        function doBoth()
+        {
+            let x = parseInt(document.getElementById("xinput").value);
+            let y = parseInt(document.getElementById("yinput").value);
+
+            document.getElementById('answer').innerHTML = "Sum = " + sumFunction(x ,y) ;
+        } // end of doBoth()
+
+        function doDefault()
+        {
+            let x = parseInt(document.getElementById("xinput").value);
+
+            document.getElementById('answer').innerHTML = "Sum = " + sumFunction(x) ;
+        } // end of doDefault()
+    </script>
+  </body>
+</html>

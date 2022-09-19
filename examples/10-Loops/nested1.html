@@ -1,0 +1,32 @@
+<!-- 
+Filename: nested1.html
+Author: Joshua Males
+Date Created: October 23, 2018
+Last Fix: October 23, 2018
+Description: Nested Loop #1
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Nested Loop #1</title>
+    <meta charset="utf-8"/>
+  </head>
+  
+    <body>
+        <h1>Nested Loop #1</h1>
+    
+        <script>
+            let row = 1, column;
+            while (row <= 5)     {
+                column = 1;
+                while (column <= row) {
+                    document.write(column + " ");
+                    column++;
+                } // inner while
+                document.write("<br />"); // Jump down to the next row
+                row++;
+            } // outer while
+        </script>
+        
+    </body>
+</html>

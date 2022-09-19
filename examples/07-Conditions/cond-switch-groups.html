@@ -1,0 +1,67 @@
+<!-- 
+Filename: cond-switch-groups.html
+Author: Joshua Males
+Date Created: October 17, 2018
+Last Fix: October 17, 2018
+Description: Switch
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Switch - Groups</title>
+    <meta charset="utf-8"/>
+  </head>
+  
+  <body>
+    <h1>Switch - Groups</h1>
+    
+    Month (1-12): <input type="number" id="xinput" value="1">
+    <br><br>
+    <button id="button1" onclick="doThings()">Show Season Name</button>
+    
+    <p id="answer"></p>
+    
+    <script>
+        function doThings()
+        {
+            // Get the value from the input box and store in x
+            let month = parseInt(document.getElementById("xinput").value);
+            
+            switch (month) {
+                // January, February, March
+                case 1:
+                case 2:
+                case 3:
+                        document.getElementById('answer').innerHTML = "Winter" ;
+                        break;
+                        
+                // April, May, June
+                case 4:
+                case 5:
+                case 6:
+                        document.getElementById('answer').innerHTML = "Spring" ;
+                        break;
+                        
+                // July, August, September
+                case 7:
+                case 8:
+                case 9:
+                        document.getElementById('answer').innerHTML = "Summer" ;
+                        break;
+
+                // October, November, December
+                case 10:
+                case 11:
+                case 12:
+                        document.getElementById('answer').innerHTML = "Autumn" ;
+                        break;
+                        
+                default:
+                        document.getElementById('answer').innerHTML = "Unknown Month" ;
+            } // end of switch        
+        } // end of doThings()
+    </script>
+    
+  </body>
+</html>
+

@@ -1,0 +1,41 @@
+<!-- 
+Filename: func-area-circle.html
+Author: Joshua Males
+Date Created: November 3, 2018
+Last Fix: November 3, 2018
+Description: Function for Area of Circle
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Area of Circle</title>
+    <meta charset="utf-8"/>
+  </head>
+  
+  <body>
+    <h1>Area of Circle</h1>
+    Enter Radius: <input type="number" id="rinput" value="0">
+    <br><br>
+    <button id="button1" onclick="doThings();">Calculate Area</button>
+        
+    <p id="answer"></p>
+    
+    <script>
+        function areaOfCircle(radius)
+        {
+            let area =  Math.PI * radius * radius;
+            return area.toFixed(2);
+        } // areaOfCircle    
+
+        function doThings()
+        {
+            // Get the value from the input box and store in radius
+            let radius = parseFloat(document.getElementById("rinput").value);
+
+            let area = areaOfCircle(radius);
+            
+            document.getElementById('answer').innerHTML = "Area = " + area ;
+        } // end of doThings()
+    </script>
+  </body>
+</html>

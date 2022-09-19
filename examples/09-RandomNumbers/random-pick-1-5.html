@@ -1,0 +1,37 @@
+<!-- 
+Filename: random-pick-1-5.html
+Author: Joshua Males
+Date Created: October 23, 2018
+Last Fix: October 23, 2018
+Description: Pick a random number and prompt user
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Pick a Random Number</title>
+    <meta charset="utf-8"/>
+  </head>
+  
+  <body>
+    <h1>Pick a Random Number</h1>
+    <p id="answer"></p>
+    
+    <script>
+        let r = Math.floor(Math.random() * 5) + 1;
+        
+        myNumber = window.prompt ("Pick a number from 1 to 5:", "");
+        if ((myNumber == null) || (myNumber == "null") || (myNumber == "")) {
+            document.write("User Cancelled");
+        }
+        else {        
+            if (myNumber == r)
+                document.getElementById('answer').innerHTML = 
+                    "Correct (" + r + "). You can read my mind.";
+            else
+                document.getElementById('answer').innerHTML = 
+                    "Sorry. The random number is " + r;
+        }    
+    </script>
+    
+  </body>
+</html>

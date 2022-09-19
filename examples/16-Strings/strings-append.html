@@ -1,0 +1,67 @@
+<!-- 
+Filename: strings-append.html
+Author: Joshua Males
+Date Created: June 12, 2019
+Last Fix: June 12, 2019
+Description: Strings - Append Functions
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Strings - Append Functions</title>
+    <meta charset="utf-8"/>
+  </head>
+  
+  <body>
+    <h1>Strings - Append Functions</h1>
+    
+    String #1: <input id="input1" value="I Like Dogs.">
+    <br><br>
+    String #2: <input id="input2" value="I Like Cats.">
+    <br><br>
+    String #3: <input id="input3" value="I Like Horses.">
+    <br><br>
+    <button onclick="add1And2()">Add 1 and 2</button><br /><br />
+    <button onclick="addAll()">Add All</button><br /><br />
+    
+    <p id="answer"></p>
+    
+    <script>
+        function add1And2()
+        {
+            // Get the value from the input box and store in x
+            let str1 = document.getElementById("input1").value;
+            let str2 = document.getElementById("input2").value;
+            
+            let sResult = "String #1 + String #2 = " + 
+                          str1 + " " + str2;
+            document.getElementById('answer').innerHTML = sResult;
+            
+            sResult = "Using str1.concat(\" \") and str1.concat(str2): ";
+            str1 = str1.concat(" ");
+            str1 = str1.concat(str2);
+            document.getElementById('answer').innerHTML += "<br />" + sResult + str1;
+        } // end of add1And2()
+        
+        //=============================================
+        function addAll()
+        {
+            // Get the value from the input box and store in x
+            let str1 = document.getElementById("input1").value;
+            let str2 = document.getElementById("input2").value;
+            let str3 = document.getElementById("input3").value;
+            
+            let sResult = "String #1 + String #2 + String #3 = " + 
+                          str1 + " " + str2 + " " + str3;
+            document.getElementById('answer').innerHTML = sResult;
+            
+            sResult = "Using str1.concat(\" \", str2, \" \", str3): ";
+            str1 = str1.concat(" ", str2, " ", str3);
+            document.getElementById('answer').innerHTML += "<br />" + sResult + str1;
+        } // end of addAll()
+        
+    </script>
+    
+  </body>
+</html>
+

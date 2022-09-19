@@ -1,0 +1,42 @@
+<!-- 
+Filename: constants.html
+Author: Joshua Males
+Date Created: June 18, 2019
+Last Fix: June 18, 2019
+Description: Constants
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Constants</title>
+    <meta charset="utf-8"/>
+  </head>
+  
+  <body>
+    <h1>Constants</h1>
+    
+    <script>
+        let pi   = 3.14159; // This can change
+        const PI = 3.14159; // This cannot change
+        
+        let radius = 2;
+        let area = PI * (radius * radius);
+        document.write("Radius #1 = " + radius + ". " + 
+                       "PI #1 = " + PI + ". " + 
+                       "Area = " + area + "<br />");
+        
+        pi = 3.14;
+        area = pi * (radius * radius);
+        document.write("Radius #2 = " + radius + ". " + 
+                       "PI #2 = " + pi + ". " + 
+                       "Area = " + area + "<br />");
+                       
+        PI = 3.14; // This will produce an error. Look at the console.
+        area = PI * (radius * radius);
+        document.write("Radius #3 = " + radius + ". " + 
+                       "PI #3 = " + PI + ". " + 
+                       "Area = " + area + "<br />");
+    </script>
+    
+  </body>
+</html>

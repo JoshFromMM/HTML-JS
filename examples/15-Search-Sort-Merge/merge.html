@@ -1,0 +1,132 @@
+<!-- 
+Filename: merge.html
+Author: Joshua Males
+Date Created: December 17, 2018
+Last Fix: June 26, 2019
+Description: Merge Two Sorted Arrays
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+        Merge Two Sorted Arrays
+    </title>
+    <meta charset="utf-8"/>
+  </head>
+  
+    <body>
+        <h1>
+            Merge Two Sorted Arrays
+        </h1>
+
+        <script>
+            //==========================================================
+            // Global variables
+            //==========================================================
+            let aFirst = [], aSecond = [];
+            let aMerged = []; // Destination for merged array
+            let aIndex1 = [], aIndex2 = [];
+            let text, i;
+            
+            //==========================================================
+            for (i=0; i < 10; i++)
+                aFirst[i] = Math.floor(Math.random() * 100) + 1;
+            bubbleSort(aFirst);    
+            document.write(buildTable("First Array", aFirst));
+                
+            for (i=0; i < 7; i++)
+                aSecond[i] = Math.floor(Math.random() * 100) + 1;
+            bubbleSort(aSecond);    
+            document.write(buildTable("Second Array", aSecond));
+
+            // Merge the two arrays and display.
+            merge(aFirst, aSecond);
+            document.write(buildTable("Merged Array", aMerged, true));
+            
+            //==========================================================
+            function bubbleSort(arr)
+            {
+                let i, isSorted, temp;
+                
+                do {
+                    isSorted = true;
+                    for (i=0; i<arr.length-1; i++)
+                        if (arr[i] > arr[i+1]) {
+                            isSorted = false;
+                            // Swap the numbers
+                            temp = arr[i];
+                            arr[i] = arr[i+1];
+                            arr[i+1] = temp;
+                        }
+                } while (!isSorted);
+            } // bubbleSort
+            
+            //==========================================================
+            function buildTable(title, arr, withIndices=false)
+            {
+                let text;
+                
+                text = '<table border="1" bordercolor="black" cellpadding=5>';
+                
+                text += '<tr align="center"><td>Index</td>';
+                for (i=0; i<arr.length; i++)
+                    text += '<td>' + i + '</td>';
+                text += '</tr>';
+                
+                // For the last table we also show the index arrays
+                if (withIndices) {
+                    // First Index
+                    text += '<tr align="center"><td>Index1</td>';
+                    for (i=0; i<aIndex1.length; i++)
+                        text += '<td>' + aIndex1[i] + '</td>';
+                    text += '</tr>';
+                    // Second Index
+                    text += '<tr align="center"><td>Index2</td>';
+                    for (i=0; i<aIndex2.length; i++)
+                        text += '<td>' + aIndex2[i] + '</td>';
+                    text += '</tr>';
+                }
+                text += '<tr><td>' + title + '</td>';
+                for (i=0; i<arr.length; i++)
+                    text += '<td>' + arr[i] + '</td>';
+                text += '</tr>';
+                
+                text += '</table><br />';
+                return text;
+            } // buildTable
+            
+            //==========================================================
+            function merge(arr1, arr2)
+            {
+                let index1=0, index2=0;
+                
+                while ((index1 < arr1.length) && (index2 < arr2.length)) {
+                    if (arr1[index1] < arr2[index2]) {
+                        aMerged.push(arr1[index1]); // Add item from arr1
+                        aIndex1.push(index1++);
+                        aIndex2.push(index2);
+                    }    
+                    else {
+                        aMerged.push(arr2[index2]); // Add item from arr2
+                        aIndex1.push(index1);
+                        aIndex2.push(index2++);
+                    }    
+                }
+                // If we made it here, at least one array has been copied.
+                // If there is more to copy from arr1, then copy
+                while (index1 < arr1.length) {
+                    aMerged.push(arr1[index1]); // Add item from arr1
+                    aIndex1.push(index1++);
+                    aIndex2.push(" ");
+                }    
+                // If there is more to copy from arr2, then copy
+                while (index2 < arr2.length) {
+                    aMerged.push(arr2[index2]); // Add item from arr2
+                    aIndex1.push(" ");
+                    aIndex2.push(index2++);
+                }    
+            } // merge
+        </script>
+        
+    </body>
+</html>

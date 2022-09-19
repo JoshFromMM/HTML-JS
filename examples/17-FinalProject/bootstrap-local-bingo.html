@@ -1,0 +1,41 @@
+<!-- 
+Filename: bootstrap-local-bingo.html
+Author: Joshua Males
+Date Created: December 23, 2018
+Last Fix: July 8, 2019
+Description: Final Bingo Game with Local Bootstrap
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Final Bingo Game</title>
+    <meta charset="utf-8"/>
+    
+    <!-- Start Bootstrap CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- End Bootstrap CSS -->
+  </head>
+  
+  <body>
+    <div class="container">
+        <h1>Final Bingo Game with Local Bootstrap</h1>
+    
+        <script src="bingo.js"></script> 
+        <script>
+            drawFirstBoard();
+        </script>
+        
+        <h2 id="lastNumber">Last Number: </h2>
+    
+        <button id="btnPick" onclick="pickNumber()">Pick Number</button>&nbsp;
+        <button id="btnRestart" onclick="restartGame()">Restart</button>&nbsp;
+        <button id="btnCard" onclick="createCard()">Create Card</button>
+    </div><!-- end of container -->    
+    
+    <!-- Start Bootstrap JS -->
+    <script src="js/jquery-3.3.1.slim.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- End Bootstrap JS -->
+  </body>
+</html>

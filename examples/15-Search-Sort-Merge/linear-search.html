@@ -1,0 +1,84 @@
+<!-- 
+Filename: linear-search.html
+Author: Joshua Males
+Date Created: December 17, 2018
+Last Fix: June 26, 2019
+Description: Linear Search through Array
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+        Linear Search
+    </title>
+    <meta charset="utf-8"/>
+  </head>
+  
+    <body>
+        <h1>
+            Linear Search
+        </h1>
+
+        <script>
+            let aNumbers = [5,10,15,20,25,30,35,40,45,50,
+                            55,60,65,70,75,80,85,90,95,100];
+            let text, i, compares;
+            
+            // Build and display the table
+            text = '<table border="1" bordercolor="black" cellpadding=5>';
+            text += '<tr><td>Index</td>';
+            for (i=0; i<aNumbers.length; i++)
+                text += '<td>' + i + '</td>';
+            text += '</tr>';
+            text += '<tr><td>Numbers</td>';
+            for (i=0; i<aNumbers.length; i++)
+                text += '<td>' + aNumbers[i] + '</td>';
+            text += '</tr></table><br /><br />';
+                
+            document.write(text);
+        </script>
+            
+        Number to Find: 
+        <input type="number" id="ninput" value="">
+        <br><br>
+        <button id="button1" onclick="doThings()">
+            Search
+        </button>
+        
+        <p id="answer"></p>
+        
+        <script>
+            //==========================================================
+            function linearSearch(arr, findMe) {
+                let index = 0
+                
+                compares = 1;
+                index = 0;
+                while ((index < arr.length) && (arr[index] < findMe)) { 
+                    index++;
+                    compares++;
+                }    
+                if (arr[index] == findMe)
+                    return index;
+                    
+                return -1; // Not found
+            } // linearSearch
+            
+            //==========================================================
+            function doThings()
+            {
+                // Get the value from the input box and store
+                let findMe = parseInt(document.getElementById("ninput").value);
+                let position = linearSearch(aNumbers, findMe);
+
+                if (position != -1)
+                    document.getElementById('answer').innerHTML = 
+                            "Found at index " + position + ". Compares = " + compares;
+                else            
+                    document.getElementById('answer').innerHTML = 
+                            "Not found. Compares = " + compares;
+            } // doThings()
+        </script>
+        
+    </body>
+</html>

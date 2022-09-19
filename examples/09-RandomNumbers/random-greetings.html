@@ -1,0 +1,77 @@
+<!-- 
+Filename: random-greetings.html
+Author: Joshua Males
+Date Created: October 25, 2018
+Last Fix: October 25, 2018
+Description: Random Greeting Generator
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>מחולל ברכות</title>
+        <meta charset="utf-8"/>
+      </head>
+  
+    <body dir="rtl">
+        <h1>מחולל ברכות</h1>
+    
+        <button id="button1" onclick="doThings()">תן ברכה</button>
+    
+        <p id="answer"></p>
+    
+        <script>
+            function doThings()
+            {
+                let day = new Date().getDay(); // Get the day of the week: 0-6
+                let r;
+                let greeting = "";
+
+                if (day == 0) {
+                    greeting += " שבוע";  // We are on Sunday
+                }    
+                else {    
+                    // Not Sunday
+                    r = Math.floor(Math.random() * 2) ;
+                    switch (r) {
+                        case 0: greeting += " יום";
+                                break;
+                        case 1: greeting += " בוקר";
+                                break;
+                    } // switch
+                }    
+            
+                r = Math.floor(Math.random() * 5) ;
+                switch (r) {
+                    case 0: greeting += " טוב ";
+                            break;
+                    case 1: greeting += " נעים ";
+                            break;
+                    case 2: greeting += " מבורך ";
+                            break;
+                    case 3: greeting += " מוצלח ";
+                            break;
+                    case 4: greeting += " מקסים ";
+                            break;
+                } // switch
+                
+                r = Math.floor(Math.random() * 5) ;
+                switch (r) {
+                    case 0: greeting += "לכם";
+                            break;
+                    case 1: greeting += "בנים ובנות";
+                            break;
+                    case 2: greeting += "לכולם";
+                            break;
+                    case 3: greeting += "תלמידים";
+                            break;
+                    case 4: greeting += "ילדים";
+                            break;
+                } // switch
+                
+
+                document.getElementById('answer').innerHTML = greeting;
+            } // end of doThings()
+        </script>
+    
+    </body>
+</html>
