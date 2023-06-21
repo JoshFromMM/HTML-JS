@@ -42,11 +42,11 @@ Test with: https://www.hebcal.com/converter
             // Adjust for postponement.
             let c = (3*hebrewYear + 5*b + dayInMarch + 5) % 7;
             switch (c) {
-                case 0: if ((a > 11) && (m >= (1367/2160)))
+                case 0: if ((a > 11) && (m >= (23269/25920)))
                             dayInMarch += 2;
                         break;
                         
-                case 1: if ((a > 6) && (m >= (23269/25920)))
+                case 1: if ((a > 6) && (m >= (1367/2160)))
                             dayInMarch += 1;
                         break;
                         
